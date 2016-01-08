@@ -1,9 +1,11 @@
 #include"LGDIDirectX9.h"
 
-LGDIDirectX9::LGDIDirectX9() :
+LGDIDirectX9::LGDIDirectX9(HWND hWnd, LGDI_Type type) :
+	LGDIWrapper(hWnd, type),
 	m_pD3D(NULL),
 	m_pD3DDevice(NULL)
 {
+	initDevice();
 }
 
 LGDIDirectX9::~LGDIDirectX9()
@@ -44,4 +46,6 @@ bool LGDIDirectX9::render()
 	}
 
 	m_pD3DDevice->Present(NULL, NULL, NULL, NULL);
+
+	return true;
 }

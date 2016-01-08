@@ -4,5 +4,9 @@
 
 class LEngine
 {
-		
+public:
+	LEngine();
+	~LEngine();
+
+public:
 };

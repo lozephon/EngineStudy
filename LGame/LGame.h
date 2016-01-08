@@ -4,10 +4,11 @@
 class LGame
 {
 public:
-	LGame();
+	LGame(HWND hWnd);
 	~LGame();
 
+	LGDIWrapper* GetGDI() { return m_GDIWrapper; }
 private:
 	LEngine *m_engine;
-
+	LGDIWrapper *m_GDIWrapper;
 };

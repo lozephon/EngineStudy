@@ -1,6 +1,7 @@
 #pragma once
 #include<Windows.h>
 
+/*
 class WinMain
 {
 public:
@@ -10,3 +11,4 @@ private:
 	HWND hWnd;
 	WNDCLASS WndClass;
 };
+*/

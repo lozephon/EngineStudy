@@ -1,5 +1,6 @@
 #include"main.h"
 #include"..\LGame\LGame.h"
+#include "..\LEngine\LEngine.h"
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
@@ -28,6 +29,10 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
 		NULL, (HMENU)NULL, hInstance, NULL);
+
+	LGame lGame(hWnd);
+	LEngine lEngine;
+
 	ShowWindow(hWnd, nCmdShow);
 
 	MSG msg;
@@ -42,7 +47,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 		}
 		else
 		{
-
+			lGame.GetGDI()->render();
 		}
 	}
 
@@ -57,6 +62,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
+		return 0;
+	case WM_PAINT:
+		
 		return 0;
 	}
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
