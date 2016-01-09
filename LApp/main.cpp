@@ -10,7 +10,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 	, LPSTR lpszCmdParam, int nCmdShow)
 {
 	HWND hWnd;
-	MSG Message;
 	WNDCLASS WndClass;
 	g_hInst = hInstance;
 
@@ -34,6 +33,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 	LEngine lEngine;
 
 	ShowWindow(hWnd, nCmdShow);
+	UpdateWindow(hWnd);
 
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
@@ -42,8 +42,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 	{
 		if (PeekMessage(&msg, NULL, 0U, 0U, PM_REMOVE))
 		{
-			TranslateMessage(&Message);
-			DispatchMessage(&Message);
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
 		}
 		else
 		{
@@ -62,9 +62,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
-		return 0;
-	case WM_PAINT:
-		
 		return 0;
 	}
 	return(DefWindowProc(hWnd, iMessage, wParam, lParam));
