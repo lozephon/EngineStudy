@@ -133,11 +133,13 @@
     <ClInclude Include="LEngine.h" />
     <ClInclude Include="LGDIDirectX9.h" />
     <ClInclude Include="LGDIWrapper.h" />
+    <ClInclude Include="LMath.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LEngine.cpp" />
     <ClCompile Include="LGDIDirectX9.cpp" />
     <ClCompile Include="LGDIWrapper.cpp" />
+    <ClCompile Include="LMath.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

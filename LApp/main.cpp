@@ -5,6 +5,7 @@
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 HINSTANCE g_hInst;
 LPTSTR lpszClass = TEXT("First");
+LGame *g_pLGame = NULL;
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 	, LPSTR lpszCmdParam, int nCmdShow)
@@ -25,12 +26,14 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 	WndClass.style = CS_HREDRAW | CS_VREDRAW;
 	RegisterClass(&WndClass);
 
+// 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
+// 		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+// 		NULL, (HMENU)NULL, hInstance, NULL);
 	hWnd = CreateWindow(lpszClass, lpszClass, WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
-		NULL, (HMENU)NULL, hInstance, NULL);
+		100, 100, 300, 300,
+		GetDesktopWindow(), (HMENU)NULL, hInstance, NULL);
 
-	LGame lGame(hWnd);
-	LEngine lEngine;
+	g_pLGame = new LGame(hWnd);
 
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
@@ -47,11 +50,13 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance
 		}
 		else
 		{
-			lGame.GetGDI()->render();
+			g_pLGame->GetGDI()->render();
 		}
 	}
 
 	UnregisterClass(WndClass.lpszClassName, hInstance);
+
+	delete g_pLGame;
 	return 0;
 }
 
@@ -59,6 +64,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
 {
 	switch (iMessage) {
 	case WM_LBUTTONDOWN:
+		return 0;
+	case WM_PAINT:
+	case WM_WINDOWPOSCHANGING:
+	case WM_WINDOWPOSCHANGED:
+		g_pLGame->GetGDI()->render();
 		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
