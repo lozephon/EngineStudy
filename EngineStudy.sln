@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LEngine", "LEngine\LEngine.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LGame", "LGame\LGame.vcxproj", "{1D14A3C7-A605-41F2-89A0-BD22F6046175}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3DGameProgramming", "3DGameProgramming\3DGameProgramming.vcxproj", "{749ECD84-F68E-4958-BB4E-03718A851C39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -45,6 +47,14 @@ Global
 		{1D14A3C7-A605-41F2-89A0-BD22F6046175}.Release|x64.Build.0 = Release|x64
 		{1D14A3C7-A605-41F2-89A0-BD22F6046175}.Release|x86.ActiveCfg = Release|Win32
 		{1D14A3C7-A605-41F2-89A0-BD22F6046175}.Release|x86.Build.0 = Release|Win32
+		{749ECD84-F68E-4958-BB4E-03718A851C39}.Debug|x64.ActiveCfg = Debug|x64
+		{749ECD84-F68E-4958-BB4E-03718A851C39}.Debug|x64.Build.0 = Debug|x64
+		{749ECD84-F68E-4958-BB4E-03718A851C39}.Debug|x86.ActiveCfg = Debug|Win32
+		{749ECD84-F68E-4958-BB4E-03718A851C39}.Debug|x86.Build.0 = Debug|Win32
+		{749ECD84-F68E-4958-BB4E-03718A851C39}.Release|x64.ActiveCfg = Release|x64
+		{749ECD84-F68E-4958-BB4E-03718A851C39}.Release|x64.Build.0 = Release|x64
+		{749ECD84-F68E-4958-BB4E-03718A851C39}.Release|x86.ActiveCfg = Release|Win32
+		{749ECD84-F68E-4958-BB4E-03718A851C39}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
